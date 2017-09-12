@@ -5,6 +5,46 @@
 @file: config.py
 @time: 2017/9/12 16:15
 
-这一行开始写关于本文件的说明与解释
+程序的配置
 """
+import os
+basedir = os.path.abspath(os.path.dirname(__file__))
+
+
+class Config:
+    SECRET_KEY = os.environ.get('SECRET_KEY') or 'hard to guess string'
+    SQLALCHEMY_COMMIT_ON_TEARDOWN = True
+    FLASKY_MAIL_SUBJECT_PREFIX = '[Flasky]'
+    FLASKY_MAIL_SENDER = 'Flasky Admin <flasky@example.com>'
+    FLASKY_ADMIN = os.environ.get("FLASKY_ADMIN")
+
+    @staticmethod
+    def init_app(app):
+        pass
+
+
+class DevelopmentConfig(Config):
+    DEBUG = True
+    MAIL_SERVER = 'smtp.163.com'
+    MAIL_PORT = 587
+    MAIL_USE_TLS = True
+    MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
+    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
+
+
+class TestingConfig(Config):
+    TESTING = True
+    pass
+
+
+class ProductionConfig(Config):
+    pass
+
+
+config = {
+    'development': DevelopmentConfig,
+    'testing': TestingConfig,
+    'production': ProductionConfig,
+    'default': DevelopmentConfig
+}
 

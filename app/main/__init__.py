@@ -7,4 +7,8 @@
 
 这一行开始写关于本文件的说明与解释
 """
+from flask import Blueprint
 
+main = Blueprint('main', __name__)
+
+from . import views,errors
