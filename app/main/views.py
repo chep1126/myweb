@@ -28,7 +28,7 @@ def movie():
         key_word = "%%"+form.movie_name.data+"%%"
         data = Movie.query.filter(Movie.name.ilike(key_word)).all()
         print(data)
-        if len(data)==0:
+        if len(data) == 0:
             session['movie_data'] = ['查询的电影不存在']
         else:
             movies=[]
@@ -39,4 +39,4 @@ def movie():
                 movies.append(movie)
             session['movie_data'] = movies
         return redirect("/query/movie")
-    return render_template("movie.html",form = form,movie_data = session["movie_data"])
+    return render_template("movie.html",form = form,movie_data = session.get("movie_data"))
