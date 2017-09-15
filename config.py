@@ -17,6 +17,9 @@ class Config:
     FLASKY_MAIL_SUBJECT_PREFIX = '[Flasky]'
     FLASKY_MAIL_SENDER = 'Flasky Admin <flasky@example.com>'
     FLASKY_ADMIN = os.environ.get("FLASKY_ADMIN")
+    SQLALCHEMY_DATABASE_URI = 'mysql://root:1126@localhost:3306/flask?charset=utf8'
+    SQLALCHEMY_ECHO = True
+    SQLALCHEMY_TRACK_MODIFICATIONS=True
 
     @staticmethod
     def init_app(app):

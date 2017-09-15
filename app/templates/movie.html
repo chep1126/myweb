@@ -2,12 +2,20 @@
 {% import 'bootstrap/wtf.html' as forms %}
 
 {% block content %}
-    <div class="col-md-4">
+    <div class="form-inline">
     {{ forms.quick_form(form) }}
     </div>
-    <div class="col-md-4">
-    <table>
-
-    </table>
+    <br>
+    <div>
+        <table class="table table-striped">
+        {% if movie_data %}
+        {% for m in movie_data %}
+        <tr>
+        <td>{{ m.name }}</td><td><a href="{{ url_for }}">连接</a></td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+        </table>
     </div>
+
 {% endblock %}

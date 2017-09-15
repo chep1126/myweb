@@ -9,9 +9,9 @@
 """
 from flask_wtf import FlaskForm
 from wtforms import StringField,SubmitField
-from wtforms.validators import DataRequired
+from wtforms.validators import Required
 
 
 class MovieForm(FlaskForm):
-    movie_name = StringField(DataRequired)
-    sub = SubmitField()
+    movie_name = StringField(validators=[Required()])
+    sub = SubmitField("submit")
