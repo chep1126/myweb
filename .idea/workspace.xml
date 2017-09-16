@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a24839fd-842f-4a64-8b5e-92da15ce1954" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/templates/movie_info.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runserver1.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/main/views.py" afterPath="$PROJECT_DIR$/app/main/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/404.html" afterPath="$PROJECT_DIR$/app/templates/404.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/500.html" afterPath="$PROJECT_DIR$/app/templates/500.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/movie.html" afterPath="$PROJECT_DIR$/app/templates/movie.html" />
-    </list>
+    <list default="true" id="a24839fd-842f-4a64-8b5e-92da15ce1954" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -85,8 +77,8 @@
       <file leaf-file-name="movie_info.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/templates/movie_info.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="4" column="58" lean-forward="true" selection-start-line="4" selection-start-column="58" selection-end-line="4" selection-end-column="58" />
+            <state relative-caret-position="26">
+              <caret line="1" column="19" lean-forward="true" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -187,8 +179,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="470" />
-    <option name="y" value="14" />
+    <option name="x" value="1303" />
+    <option name="y" value="372" />
     <option name="width" value="1586" />
     <option name="height" value="1056" />
   </component>
@@ -651,7 +643,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="470" y="14" width="1586" height="1056" extended-state="0" />
+    <frame x="1303" y="372" width="1586" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2002551" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1072,8 +1064,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/movie_info.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="4" column="58" lean-forward="true" selection-start-line="4" selection-start-column="58" selection-end-line="4" selection-end-column="58" />
+        <state relative-caret-position="26">
+          <caret line="1" column="19" lean-forward="true" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
           <folding />
         </state>
       </provider>
