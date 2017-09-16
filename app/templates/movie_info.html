@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if movie_data["isexist"] %}
+    <h1>{{ movie_data["title"] }}</h1>
+    {% for url in movie_data['thunder_urls'].split(";") %}
+    <button class="btn btn-success"  href="{{ url }}">下载连接</button>
+    {% endfor %}
+    {% for d in movie_data['content'].split('◎') %}
+    <strong>{{ d }}</strong>
+        <br>
+    {% endfor %}
+{% else %}
+    <h1>MOVIE</h1>
+{% endif %}
+{% endblock %}
