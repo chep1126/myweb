@@ -16,6 +16,14 @@ class Movie(db.Model):
     id = db.Column(db.VARCHAR(20),primary_key = True)
     name = db.Column(db.VARCHAR(256))
     url = db.Column(db.VARCHAR(256))
-
+    download = db.Column(db.Integer,nullable=False, default=1)
+    error= db.Column(db.VARCHAR(256))
     def __repr__(self):
         return '<Movie %r>' % self.name
+
+
+class Movie_info(db.Model):
+    __tablename__ = "Movie_info"
+    id = db.Column(db.VARCHAR(20), primary_key=True)
+    content = db.Column(db.TEXT)
+    thunder_urls = db.Column(db.TEXT)
