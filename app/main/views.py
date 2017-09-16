@@ -9,7 +9,7 @@
 """
 
 from . import main
-from flask import render_template,session,redirect,current_app
+from flask import render_template,session,redirect,url_for
 from .forms import MovieForm
 from ..models import Movie,Movie_info
 from urllib.parse import urljoin
@@ -23,7 +23,7 @@ def index():
 
 @main.route("/query/movie",methods=['GET', 'POST'])
 def movie():
-    half_url = "http://www.dytt8.net/"
+    half_url = "http://www.ygdy8.net/"
     form = MovieForm()
     if form.validate_on_submit():
         key_word = "%%"+form.movie_name.data+"%%"
@@ -39,23 +39,29 @@ def movie():
                 movie["url"] = urljoin(half_url,d.url)
                 movies.append(movie)
             session['movie_data'] = movies
-        return redirect("/query/movie")
+
+
     return render_template("movie.html",form = form,movie_data = session.get("movie_data"))
 
 
 @main.route('/query/movie/<movie_id>')
 def movie_info(movie_id):
+    url={}
     m_info={}
     movie_data = Movie_info.query.filter_by(id =movie_id).all()
     title = Movie.query.filter_by(id = movie_id).all()
-    print(movie,title)
+    print(movie_data,title)
     try:
         m_info["title"] = title[0].name
         m_info['content'] = movie_data[0].content
-        m_info['thunder_urls'] = movie_data[0].thunder_urls
+        thunder_urls = movie_data[0].thunder_urls
+        ftp_urls =movie_data[0].ftp_urls
+        for x,y in zip(thunder_urls.split(';'),ftp_urls.split(';')):
+            url[x]=y
         m_info["isexist"] = True
 
     except Exception as e:
         print(e)
         m_info["isexist"]=False
-    return render_template("movie_info.html", movie_data=m_info)
+
+    return render_template("movie_info.html", movie_data=m_info,url=url)

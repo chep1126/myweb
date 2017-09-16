@@ -26,4 +26,5 @@ class Movie_info(db.Model):
     __tablename__ = "movie_info"
     id = db.Column(db.VARCHAR(20), primary_key=True)
     content = db.Column(db.TEXT)
+    ftp_urls = db.Column(db.TEXT)
     thunder_urls = db.Column(db.TEXT)

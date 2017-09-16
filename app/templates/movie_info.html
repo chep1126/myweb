@@ -2,9 +2,12 @@
 {% block content %}
 {% if movie_data["isexist"] %}
     <h1>{{ movie_data["title"] }}</h1>
-    {% for url in movie_data['thunder_urls'].split(";") %}
-    <button class="btn btn-success"  href="{{ url }}">下载连接</button>
+    {% for thunder_url,ftp_url in url.items() %}
+        <a href="{{ thunder_url }}" target="_self" thunderpid="21319" thundertype="" thunderrestitle="{{ ftp_url }}" onclick="return OnDownloadClick_Simple(this,2);" oncontextmenu="ThunderNetwork_SetHref(this)" secggsrm="{{ thunder_url }}">{{ ftp_url }}</a>
+    <button class="btn btn-success"  href="{{ thuner_url }}">下载连接</button>
     {% endfor %}
+    <br>
+    <br>
     {% for d in movie_data['content'].split('◎') %}
     <strong>{{ d }}</strong>
         <br>
