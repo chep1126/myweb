@@ -48,11 +48,13 @@ def movie_info(movie_id):
     m_info={}
     movie_data = Movie_info.query.filter_by(id =movie_id).all()
     title = Movie.query.filter_by(id = movie_id).all()
-    if movie_data and title:
+    print(movie,title)
+    try:
         m_info["title"] = title[0].name
         m_info['content'] = movie_data[0].content
         m_info['thunder_urls'] = movie_data[0].thunder_urls
         m_info["isexist"] = True
-        return render_template("movie_info.html",movie_data = m_info)
-    else:
+
+    except Exception as e:
         m_info["isexist"]=False
+    return render_template("movie_info.html", movie_data=m_info)
