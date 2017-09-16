@@ -56,5 +56,6 @@ def movie_info(movie_id):
         m_info["isexist"] = True
 
     except Exception as e:
+        print(e)
         m_info["isexist"]=False
     return render_template("movie_info.html", movie_data=m_info)
