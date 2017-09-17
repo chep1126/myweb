@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
-{% block content %}
+{% block page_content %}
 {% if movie_data["isexist"] %}
     <h1>{{ movie_data["title"] }}</h1>
     {% for thunder_url,ftp_url in url.items() %}
         <a href="{{ thunder_url }}" target="_self" thunderpid="21319" thundertype="" thunderrestitle="{{ ftp_url }}" onclick="return OnDownloadClick_Simple(this,2);" oncontextmenu="ThunderNetwork_SetHref(this)" secggsrm="{{ thunder_url }}">{{ ftp_url }}</a>
     <button class="btn btn-success"  href="{{ thuner_url }}">下载连接</button>
+       <br>
     {% endfor %}
     <br>
     <br>

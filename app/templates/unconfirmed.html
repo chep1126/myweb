@@ -1,0 +1,4 @@
+{% extends 'base.html' %}
+{% block page_content %}
+<p>没收到确认邮件？<a href="{{ url_for('main.resend_confirmation') }}">点这里从新发送</a></p>
+{% endblock %}

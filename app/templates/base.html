@@ -21,6 +21,16 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="/query/movie">Movie</a></li>
+                {% if current_user.confirmed %}
+                <li><a href="#">已确认</a></li>
+                {% endif %}
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if current_user.is_authenticated %}
+                <li><a href="{{ url_for('main.logout') }}">Sign Out</a></li>
+                {% else %}
+                <li><a href="{{ url_for('main.login') }}">Sign In</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>
@@ -29,8 +39,13 @@
 
 {% block content %}
 <div class="container">
-    <div class="page-header">
-        <h1>Hello, {{ name }}!</h1>
+    {% for message in get_flashed_messages() %}
+    <div class = "alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
     </div>
+    {% endfor %}
+
+    {% block page_content %}{% endblock %}
 </div>
 {% endblock %}
