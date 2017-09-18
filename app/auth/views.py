@@ -39,7 +39,7 @@ def logout():
 
 @auth.route('/register',methods=['GET','POST'])
 def register():
-   form =  RegistrationForm()
+   form = RegistrationForm()
    if form.validate_on_submit():
        user = User(email =form.email.data,username = form.username.data,password=form.password.data)
        db.session.add(user)
@@ -66,9 +66,9 @@ def confirm(token):
 
 @auth.before_app_request
 def before_request():
-    if current_user.is_authenticated and not current_user.confirmed and request.endpoint[:5]!='main.' and request.endpoint !='static':
+    if current_user.is_authenticated and not current_user.confirmed and request.endpoint[:5]!='auth.' and request.endpoint !='static':
 
-        return redirect(url_for('main.unconfirmed'))
+        return redirect(url_for('auth.unconfirmed'))
 
 
 @auth.route('/unconfirmed')
