@@ -10,7 +10,7 @@
         {% if movie_data %}
         {% for m in movie_data %}
         <tr>
-        <td><a href="{{ url_for('main.movie_info',movie_id=m.id, _external=True) }}">{{ m.name }}</a></td><td><a href="{{ m.url }}">电影天堂连接</a></td>
+        <td><a href="{{ url_for('movie.movie_info',movie_id=m.id, _external=True) }}">{{ m.name }}</a></td><td><a href="{{ m.url }}">电影天堂连接</a></td>
         </tr>
         {% endfor %}
         {% endif %}
