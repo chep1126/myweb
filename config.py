@@ -16,7 +16,7 @@ class Config:
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     FLASKY_MAIL_SUBJECT_PREFIX = '[CHEP]'
     FLASKY_MAIL_SENDER = '15008487521@163.com'
-    FLASKY_ADMIN = os.environ.get("FLASKY_ADMIN")
+    FLASKY_ADMIN = os.environ.get("FLASKY_ADMIN") or "15008487521@163.com"
     SQLALCHEMY_DATABASE_URI = 'mysql://root:1126@localhost:3306/flask?charset=utf8'
     SQLALCHEMY_ECHO = True
     SQLALCHEMY_TRACK_MODIFICATIONS=True
