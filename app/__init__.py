@@ -43,4 +43,7 @@ def create_app(config_name):
     from .movie import movie as movie_blueprint
     app.register_blueprint(movie_blueprint,url_prefix = "/movie")
 
+    from .memory import memory as memory_blueprint
+    app.register_blueprint(memory_blueprint,url_prefix = '/memory')
+
     return app

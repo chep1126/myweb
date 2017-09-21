@@ -33,7 +33,6 @@ def movie_list():
                 movies.append(movie)
             session['movie_data'] = movies
 
-
     return render_template("movie/movie_list.html", form = form, movie_data = session.get("movie_data"))
 
 

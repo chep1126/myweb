@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block page_content %}
+    <div class="row">
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">添加事项</button>&nbsp;&nbsp;
+        <button type="button" onclick="show_today_items()" class="btn btn-info">显示今天未办事项</button>
+        <button type="button" onclick="show_not_done_items()" class="btn btn-success">显示所有未办事项</button>&nbsp;
+        <button type="button" onclick="show_done_items()" class="btn btn-warning">显示所有已办事项</button>&nbsp;
+    </div>
+    <br>
+    <div class="collapse" id="collapseExample">
+        <form method="post" class="form-inline" >
+            {{ form.hidden_tag() }}
+            {{ wtf.form_field(form.date,type="date") }}
+            {{ wtf.form_field(form.content) }}
+            {{ wtf.form_field(form.submit) }}
+        </form>
+    </div>
+    <br>
+    <div id = "add_form">
+    </div>
+    {% if has_content %}
+        <table id="items-table" class="table table-hover col-md-4">
+            {% for m in memories %}
+                {% if not m.is_done %}
+                <tr id="tr-{{ m.id }}">
+                    <td width="10%" class="bg-success">{{ m.do_time }}</td>
+                    <td class="bg-success"><p id="content-{{ m.id }}">{{ m.content }}</p></td>
+                    <td width="10%" class="bg-success"><button onclick="del_item('{{ m.id }}')"  class="btn  btn-danger">删除</button></td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+
+    {% else %}
+    <h4>抱歉，你还没有添加事项，请点击添加按钮添加</h4>
+    {% endif %}
+{% endblock %}
+{% block scripts %}
+{{ super() }}
+<script type="text/javascript" src="/static/js/memory.js"></script>
+{% endblock %}

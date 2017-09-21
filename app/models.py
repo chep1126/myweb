@@ -13,7 +13,7 @@ from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import UserMixin,AnonymousUserMixin
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from flask import current_app
-from datetime import datetime
+from datetime import date,datetime
 
 class Permission:
     FOLLOW = 0x01#关注
@@ -131,6 +131,16 @@ class User(UserMixin,db.Model):
 
     def is_administrator(self):
         return self.can(Permission.ADMINISTER)
+
+
+class Memory(db.Model):
+    __tablename__='memories'
+    user_id = db.Column(db.Integer)
+    id = db.Column(db.Integer,autoincrement=True,primary_key=True)
+    create_time = db.Column(db.Date(),default=datetime.strftime(datetime.utcnow(),format='%Y-%m-%d'))
+    do_time = db.Column(db.Date(),default=datetime.strftime(datetime.utcnow(),format='%Y-%m-%d'))
+    content = db.Column(db.Text())
+    is_done = db.Column(db.Boolean,default=False)
 
 
 class AnonymousUser(AnonymousUserMixin):
