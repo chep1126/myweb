@@ -31,7 +31,7 @@ class DevelopmentConfig(Config):
     MAIL_PORT = 25
     MAIL_USE_TLS = True
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME') or "15008487521@163.com"
-    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD') or "chep1126"
+    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD') or ""
 
 
 class TestingConfig(Config):
