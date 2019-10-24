@@ -15,8 +15,8 @@ class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'hard to guess string'
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     FLASKY_MAIL_SUBJECT_PREFIX = '[CHEP]'
-    FLASKY_MAIL_SENDER = '15008487521@163.com'
-    FLASKY_ADMIN = os.environ.get("FLASKY_ADMIN") or "15008487521@163.com"
+    FLASKY_MAIL_SENDER = 'admin@admin.com'
+    FLASKY_ADMIN = os.environ.get("FLASKY_ADMIN") or "admin@admin.com"
     SQLALCHEMY_DATABASE_URI = 'mysql://root:1126@localhost:3306/flask?charset=utf8'
     SQLALCHEMY_ECHO = True
     SQLALCHEMY_TRACK_MODIFICATIONS=True
@@ -30,7 +30,7 @@ class DevelopmentConfig(Config):
     MAIL_SERVER = 'smtp.163.com'
     MAIL_PORT = 25
     MAIL_USE_TLS = True
-    MAIL_USERNAME = os.environ.get('MAIL_USERNAME') or "15008487521@163.com"
+    MAIL_USERNAME = os.environ.get('MAIL_USERNAME') or "admin@admin.com"
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD') or ""
 
 
